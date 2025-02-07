@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS</title>
+    <style>
+* {
+  box-sizing: border-box;
+}
+  .main{
+    background-color: lightgoldenrodyellow;
+    height: 100vh;
+  }
+
+    </style>
+  </head>
+
+  <body>
+    <div >
+      <input type="text" class="input" >
+      <input type="submit" class="submitButton">
+    </div>
+
+    <div class="main"></div>
+
+    <script>
+
+      arrayOfTasks = [{id:0, name:""}];
+      
+      let inputField = document.querySelector(".input");
+      let submitButton = document.querySelector(".submitButton");
+     let mainDiv = document.querySelector(".main");
+
+
+
+      submitButton.onclick = function(){
+        if(arrayOfTasks[0].name === ""){
+        arrayOfTasks[0] = {id:Math.random(), name:`${inputField.value}`};
+        }
+      else{
+        arrayOfTasks.push({id:Math.random(), name:`${inputField.value}`});
+      };
+   
+      window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
+      inputField.value="";
+
+      let divTask = document.createElement("div");
+      let namePara = document.createElement("p");
+      namePara.innerHTML = arrayOfTasks[arrayOfTasks.length-1].name;
+      let idPara = document.createElement("p");
+      idPara.innerHTML = arrayOfTasks[arrayOfTasks.length-1].id;
+      let deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "Delete";
+
+      divTask.appendChild(idPara);
+      divTask.appendChild(namePara);
+      divTask.appendChild(deleteButton);
+
+      mainDiv.appendChild(divTask);
+
+      };
+      
+    </script>
+  </body>
+</html>
