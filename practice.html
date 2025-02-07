@@ -35,10 +35,10 @@
 
       submitButton.onclick = function(){
         if(arrayOfTasks[0].name === ""){
-        arrayOfTasks[0] = {id:Math.random(), name:`${inputField.value}`};
+        arrayOfTasks[0] = {id:Date.now(), name:`${inputField.value}`};
         }
       else{
-        arrayOfTasks.push({id:Math.random(), name:`${inputField.value}`});
+        arrayOfTasks.push({id:Date.now(), name:`${inputField.value}`});
       };
    
       window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
