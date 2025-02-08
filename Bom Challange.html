@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      .container .form{
+
+        background-color: lightgray;
+        padding: 15px 30px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content:space-between;
+        
+      }
+      .container .add{
+        height: 25px; background-color: orangered; color: white; font-weight: bold; border: none; border-radius: 2px; cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="form">
+        <input type="text" class="input">
+        <input type="submit" class="add" value="Add task">
+      </div>
+      <div class="tastks"></div>
+    </div>
+    <script> 
+  // window.localStorage.clear();
+
+  let objsArray = [];
+  let submitButton =  document.querySelector(".add");
+  let tasksMainDiv = document.querySelector(".tastks");
+  let inputInfo = document.querySelector(".input");
+
+      submitButton.onclick = function(){
+
+        singleObjCreat();
+
+      let taskDiv = document.createElement("div");
+      let para = document.createElement("p");
+      let deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "Delete";
+      deleteButton.classList.add("delete-button");
+
+window.localStorage.setItem("tasks" ,JSON.stringify(objsArray));
+let localStorageObj = JSON.parse(window.localStorage.getItem("tasks"));
+para.innerHTML = localStorageObj[localStorageObj.length-1].title;
+
+      taskDiv.appendChild(para);
+      taskDiv.appendChild(deleteButton);
+      tasksMainDiv.appendChild(taskDiv);
+
+      inputInfo.value = "";
+
+      tasksMainDiv.style.cssText = "background-color: lightgray; ";
+      taskDiv.style.cssText = "display: flex; height: 40px; align-items: center; justify-content: space-between; padding: 5px 15px; border-bottom: 10px white solid;";
+      deleteButton.style.cssText = "height: 25px; background-color: orangered; color: white; font-weight: bold; border: none; border-radius: 2px; cursor: pointer;";
+      }
+      function singleObjCreat(){
+        let obj = {id:Date.now(),title:inputInfo.value};
+        objsArray.push(obj);
+      }
+    </script>
+  </body>
+</html>
