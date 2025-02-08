@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+ 
+
+<html>
+
+    <head>
+
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            div{
+                
+
+            }
+
+        </style>
+
+       
+
+    </head>
+
+    <body>
+
+
+
+
+
+        <script>
+
+ 
+
+            let mainDiv = document.createElement("div");
+
+            let navBar = document.createElement("div");
+
+            let leftP = document.createElement("p");
+
+            let pText = document.createTextNode("Elzero");
+
+            let rightSideDiv = document.createElement("div");
+
+            let homeSpan = document.createElement("span");
+
+            homeSpan.innerText = "home";
+
+            let aboutSpan = document.createElement("span");
+
+            aboutSpan.innerText = "About";
+
+            let serviceSpan = document.createElement("span");
+
+            serviceSpan.innerText = "Service";
+
+            let contactSpan = document.createElement("span");
+
+            contactSpan.innerText = "Contact";
+            let bottomBar = document.createElement("div");
+                bottomBar.innerText = "Copyright 2025";
+            let middleDiv = document.createElement("div");
+
+            for(let i = 0; i<15; i++){
+            let boxEl = document.createElement("div");
+            let num = document.createElement("p");
+            num.innerText = `${i+1}`;
+            let prod = document.createElement("p");
+            prod.innerText = "Product";
+            boxEl.appendChild(num);
+            boxEl.appendChild(prod);
+            middleDiv.appendChild(boxEl);
+            boxEl.style.cssText= "background-color: white; display: flex;flex-direction: column; align-items: center; justify-content: center; width: calc(97%/3); padding: 15px";
+
+            num.style.cssText = "font-size: 30px; margin:0px;";
+            prod.style.cssText = "font-size: 10px; color:grey; margin:0px;";
+            }
+           
+
+ 
+
+            rightSideDiv.appendChild(homeSpan);
+
+            rightSideDiv.appendChild(aboutSpan);
+
+            rightSideDiv.appendChild(serviceSpan);
+
+            rightSideDiv.appendChild(contactSpan);
+
+ 
+
+            mainDiv.appendChild(navBar);
+            mainDiv.appendChild(middleDiv);
+            mainDiv.appendChild(bottomBar);
+            navBar.appendChild(leftP);
+            navBar.appendChild(rightSideDiv);
+            leftP.appendChild(pText);
+
+            document.body.appendChild(mainDiv);
+
+ 
+
+            navBar.style.cssText = "background-color: white; padding: 10px 20px; display: flex; justify-content: space-between";
+
+            leftP.style.cssText = "color:rgb(50, 159, 14); font-size: 22px; font-weight: bold; margin:0px; display: inline-block;";
+
+            rightSideDiv.style.cssText = "display: flex; flex-direction: row ;align-items: center; color: gray; width: 35%; justify-content: space-around ";
+
+            mainDiv.style.cssText = "height: 600px; width: 100%;";
+            middleDiv.style.cssText = "height: 85%; background-color:rgb(233, 231, 231); padding: 15px; display: flex; flex-flow: row wrap; row-gap: 15px; column-gap: 15px;";
+            bottomBar.style.cssText = "background-color: rgb(4, 179, 71); color: white; padding: 10px 20px; display: flex; justify-content: center";
+
+           
+
+            document.body.style.fontFamily = "Arial";
+            document.body.style.margin= "0px"
+
+ 
+
+        </script>
+
+    </body>
+
+</html>
