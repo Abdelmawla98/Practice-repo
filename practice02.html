@@ -9,20 +9,15 @@
         <style>
 
         </style>
-        <link rel="stylesheet" href="stylesPractice.css">
     </head>
 
     <body>
-        <div id="my-div"> div has <span>span</span></div>
 
         <script>
-            let el = document.getElementById("my-div");
-            let para = document.createElement("p");
-            para.innerText = "itsPara";
-            para.style.color = "blue";
+            let mydata = [1, 1, 1, 2, 3, "A", "A"];
+            let myws = new WeakSet([{a:1, b:2}, {c:4, d:5}]);
+            console.log(myws);
 
-            el.after(para);
-            console.log(el);
         </script>
 
     </body>
