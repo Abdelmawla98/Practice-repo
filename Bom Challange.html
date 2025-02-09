@@ -17,6 +17,24 @@
       .container .add{
         height: 25px; background-color: orangered; color: white; font-weight: bold; border: none; border-radius: 2px; cursor: pointer;
       }
+      .task{
+      display: flex;
+       height: 40px;
+        align-items: center;
+         justify-content: space-between;
+          padding: 5px 15px;
+           border-bottom: 10px white solid;
+      }
+     .Del {
+         height: 25px;
+        background-color: orangered;
+          color: white; 
+          font-weight: bold; 
+          border: none; 
+          border-radius: 2px; 
+          cursor: pointer;
+
+      }
     </style>
   </head>
   <body>
@@ -29,9 +47,14 @@
       <div class="tastks"></div>
     </div>
     <script> 
-  // window.localStorage.clear();
+  //window.localStorage.clear();
 
   let objsArray = [];
+
+  if(localStorage.getItem("task")){
+    objsArray = JSON.parse(localStorage.getItem("task"));
+  }
+
   let submitButton =  document.querySelector(".add");
   let tasksMainDiv = document.querySelector(".tastks");
   let inputInfo = document.querySelector(".input");
@@ -42,19 +65,7 @@
           addTasksToArray(inputInfo.value);
           inputInfo.value ="";
         }
-
-
-
-
-window.localStorage.setItem("tasks" ,JSON.stringify(objsArray));
-let localStorageObj = JSON.parse(window.localStorage.getItem("tasks"));
- // para.innerHTML = localStorageObj[localStorageObj.length-1].title;
-
-
-
      // tasksMainDiv.style.cssText = "background-color: lightgray; ";
-     // taskDiv.style.cssText = "display: flex; height: 40px; align-items: center; justify-content: space-between; padding: 5px 15px; border-bottom: 10px white solid;";
-     // deleteButton.style.cssText = "height: 25px; background-color: orangered; color: white; font-weight: bold; border: none; border-radius: 2px; cursor: pointer;";
       }
       function addTasksToArray(taskText){
         const obj = {
@@ -65,6 +76,7 @@ let localStorageObj = JSON.parse(window.localStorage.getItem("tasks"));
         objsArray.push(obj);
         console.log(objsArray);
         addElementsToPageFrom(objsArray);
+        addDataToLocalStorage(objsArray);
       }
   function addElementsToPageFrom(arrayOfObj){
     tasksMainDiv.innerHTML="";
@@ -83,7 +95,17 @@ let localStorageObj = JSON.parse(window.localStorage.getItem("tasks"));
       taskDiv.appendChild(span);
       tasksMainDiv.appendChild(taskDiv);
     }) 
-      
+      }
+      function   addDataToLocalStorage(objsArray){
+        window.localStorage.setItem("tasks" ,JSON.stringify(objsArray));
+        let localStorageObj = JSON.parse(window.localStorage.getItem("tasks"));
+      }
+      function getDataFromLocalStorage (){
+        let data = window.localStorage.getItem("tasks");
+        if(data){
+          let tasks = JSON.parse(data);
+          addElementsToPageFrom(tasks);
+        };
       }
     </script>
   </body>
