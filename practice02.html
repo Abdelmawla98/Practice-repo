@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+ 
+
+<html>
+
+    <head>
+
+        <style>
+
+        </style>
+        <link rel="stylesheet" href="stylesPractice.css">
+    </head>
+
+    <body>
+        <div id="my-div"> div has <span>span</span></div>
+
+        <script>
+            let el = document.getElementById("my-div");
+            let para = document.createElement("p");
+            para.innerText = "itsPara";
+            para.style.color = "blue";
+
+            el.after(para);
+            console.log(el);
+        </script>
+
+    </body>
+
+</html>
