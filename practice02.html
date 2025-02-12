@@ -5,18 +5,57 @@
 <html>
 
     <head>
-
+        <style>
+            ul li{
+                list-style: none;
+            }
+        </style>
         <style>
 
         </style>
     </head>
 
     <body>
-
+        <ul>
+            <li class="active">one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+        <div class="content">
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
         <script>
-            let mydata = [1, 1, 1, 2, 3, "A", "A"];
-            let myws = new WeakSet([{a:1, b:2}, {c:4, d:5}]);
-            console.log(myws);
+
+                let myString = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
+
+
+                let solution = myString.split("").filter(function(el){
+                    return el !== ",";
+                }).map(function(el){
+                    return  isNaN(el) ? el : "";
+                }).reduce(function(ac, cur){
+                    return cur === "_" ? ac + " " : ac+cur;
+                }).slice(1, -1);
+
+                console.log(solution); // Elzero Web School
+
+            /*
+            let ellements = document.querySelectorAll("ul li");
+            let divs = document.querySelectorAll(".content div");
+
+            ellements.forEach(function(el){
+                el.onclick = function(){
+                   // console.log(ev.target);
+                   ellements.forEach(function(el){
+                    el.classList.remove("active");
+                   })
+                   this.classList.add("active");
+                }
+            })
+          //  console.log(ellements);
+          */
 
         </script>
 
