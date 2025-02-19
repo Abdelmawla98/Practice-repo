@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
   CSS Global Values
   - inherit
   - initial
@@ -7,14 +8,55 @@
   --- If Not => initial
   - revert CSS Level [4]
   - all
+=======
+  Animation
+  - KeyFrames
+  - Name
+  - Duration
+>>>>>>> 7e58c86a96b647c5a6cbbe9a84de49650dc8115b
 */
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
+<<<<<<< HEAD
 [type="checkbox"]:root{
   border: solid 3px black;
 }
 form{
 }
+=======
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+div {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(228, 219, 219);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: 5px solid rgb(177, 91, 91);
+  margin-left: -50px;
+  margin-top: -50px;
+  animation-name: change-colour;
+  animation-duration: 3s;
+  transform: rotate(1turn);
+  transition: transform 3s;
+  border-left: transparent;
+}
+@keyframes change-colour{
+  0%{
+    background-color: white;
+  }
+  50%{
+    background-color: black;
+  }
+  100%{
+    background-color: white;
+  }
+
+}
+>>>>>>> 7e58c86a96b647c5a6cbbe9a84de49650dc8115b
