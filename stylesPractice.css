@@ -1,9 +1,42 @@
+<<<<<<< HEAD
 body{
   background-color: beige;
   height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+/*
+<<<<<<< HEAD
+  CSS Global Values
+  - inherit
+  - initial
+  - unset
+  --- If Inherit => inherit
+  --- If Not => initial
+  - revert CSS Level [4]
+  - all
+=======
+  Animation
+  - KeyFrames
+  - Name
+  - Duration
+>>>>>>> 7e58c86a96b647c5a6cbbe9a84de49650dc8115b
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+<<<<<<< HEAD
+[type="checkbox"]:root{
+  border: solid 3px black;
+}
+form{
+}
+=======
+body {
+>>>>>>> feee063c453c5d538ce509563de349c5af330a59
   font-family: Arial, Helvetica, sans-serif;
 }
 .card-one{
@@ -13,6 +46,7 @@ body{
   position: relative;
   border-radius: 15px 15px 0 0 ;
 }
+<<<<<<< HEAD
 .card-one::before{
   content: "";
   background-color: red;
@@ -76,3 +110,18 @@ width: 15px;
 height: 15px;
 color: white;
 }
+=======
+@keyframes change-colour{
+  0%{
+    background-color: white;
+  }
+  50%{
+    background-color: black;
+  }
+  100%{
+    background-color: white;
+  }
+
+}
+>>>>>>> 7e58c86a96b647c5a6cbbe9a84de49650dc8115b
+>>>>>>> feee063c453c5d538ce509563de349c5af330a59
