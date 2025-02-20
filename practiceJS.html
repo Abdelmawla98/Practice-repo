@@ -6,9 +6,7 @@
 
     <head>
         <style>
-            ul li{
-                list-style: none;
-            }
+
         </style>
         <style>
 
@@ -16,46 +14,27 @@
     </head>
 
     <body>
-        <ul>
-            <li class="active">one</li>
-            <li>two</li>
-            <li>three</li>
-        </ul>
-        <div class="content">
-            <div>one</div>
-            <div>two</div>
-            <div>three</div>
-        </div>
+        
+        <form action="" id="myForm">
+            <input type="text" value="just a text" id="input-id">
+            <label for="input-id">just a discription</label>
+            <input type="submit">
+        </form>
         <script>
+                let url1 = 'elzero.org';
+                let url2 = 'http://elzero.org';
+                let url3 = 'https://elzero.org';
+                let url4 = 'https://www.elzero.org';
+                let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
 
-                let myString = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
+                let re = /(https?(:\/\/)?(www.)?)?\w{6,}.\w{3,}(:\d{4}\/\w+.\w{3}\?\w{2}=\d{3}&\w{3}=\w+)?/g;
 
-
-                let solution = myString.split("").filter(function(el){
-                    return el !== ",";
-                }).map(function(el){
-                    return  isNaN(el) ? el : "";
-                }).reduce(function(ac, cur){
-                    return cur === "_" ? ac + " " : ac+cur;
-                }).slice(1, -1);
-
-                console.log(solution); // Elzero Web School
-
-            /*
-            let ellements = document.querySelectorAll("ul li");
-            let divs = document.querySelectorAll(".content div");
-
-            ellements.forEach(function(el){
-                el.onclick = function(){
-                   // console.log(ev.target);
-                   ellements.forEach(function(el){
-                    el.classList.remove("active");
-                   })
-                   this.classList.add("active");
-                }
-            })
-          //  console.log(ellements);
-          */
+                console.log(url1.match(re));
+                console.log(url2.match(re));
+                console.log(url3.match(re));
+                console.log(url4.match(re));
+                console.log(url5.match(re));
+       
 
         </script>
 
