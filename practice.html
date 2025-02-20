@@ -12,30 +12,35 @@
         width: 50px;
         cursor: pointer;
       }
-      .hamburger-img:hover + .side-bar{
-          display: block;
-        }
+      .hamburger-menu{
+        display: inline-block;
+        margin-left: 40px;
+      }
+      .hamburger-menu:active + .side-bar
+      {
+        left: 0; /* Slide into view */
+      }
       .main{
         background-image: url(pexels-pixabay-326333.jpg);
-        object-fit: cover;
-        height: 1000px;
+        background-size:contain;
+        background-position: center;
+        height: 800px;
+        width: 1500px;
         position: relative;
       }
       .main .side-bar{
         background-color: rgba(255, 255, 255, 0.161);
-        display: none;
         position: absolute;
+        left: -390px;
         top:0;
         bottom: 0;
         width: 400px;
-        box-shadow: 5px 10px 5px rgba(255, 255, 255, 0.161);
-      }
-      .main .side-bar:hover{
-        
+        transition: left 0.5s ease-in-out;
+        box-shadow:inset 5px 10px 5px rgba(255, 255, 255, 0.161);
       }
       .top{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         padding: 20px;
         border-bottom: 4px solid rgba(255, 255, 255, 0.161);
       }
