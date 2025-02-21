@@ -17,7 +17,7 @@
         cursor: pointer;
         transition: display 1s;
       }
-      .main .btn:active{
+      .main .btn:focus{
         display: none;
       }
       .main .side-bar{
@@ -29,7 +29,10 @@
         bottom: 0;
         transition: left 1s ;
       }
-      .main .btn:active + .side-bar{
+      .main .side-bar:focus{
+        left: 0;
+      }
+      .main .btn:focus + .side-bar{
         left: 0;
       }
 
