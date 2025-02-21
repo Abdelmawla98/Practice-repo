@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+      .main{
+        background-color: blanchedalmond;
+        height: 700px;
+        width: 1000px;
+        position: relative;
+      }
+      .main .btn{
+        position: absolute;
+        z-index: 1;
+        left: 30px;
+        top: 10px;
+        cursor: pointer;
+        transition: display 1s;
+      }
+      .main .btn:focus{
+        display: none;
+      }
+      .main .side-bar{
+        position: absolute;
+        background-color: blueviolet;
+        width: 200px;
+        left: -200px;
+        top: 0;
+        bottom: 0;
+        transition: left 1s ;
+      }
+      .main .side-bar:focus{
+        left: 0;
+      }
+      .main .btn:focus + .side-bar{
+        left: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <button class="btn">test</button>
+        <div class="side-bar"></div>
+    </div>
+  </body>
+</html>
