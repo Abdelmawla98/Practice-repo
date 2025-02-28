@@ -1,26 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>CSS</title>
-    <link rel="stylesheet" href="stylesPractice.css" />
+<style>
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    position: relative;
+    background-color: rgb(43, 149, 149);
+  }
+  .main{
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    height: 260px;
+    width: 240px;
+  }
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(16, 73, 54);
+    border-radius: 8px 8px 0 0;
+    height: 50px;
+  }
+    form{
+      display: flex;
+      flex-direction: column;
+      padding: 13px;
+    }
+    .div{
+      background-color: rgb(43, 149, 149);
+      width: 95%;
+      border-radius: 4px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+    form input{
+      width: 100%;
+      padding: 5px;
+      border-radius: 0 4px 4px 0;
+    }
+    .div #email, #password{
+      border: 2px lightgray solid;
+    }
+    .div input:focus{
+      outline: none;
+      border: 2px solid rgb(43, 149, 149);
+    }
+    form label{
+      display: inline-block;
+    }
+    img{
+      width: 20px;
+      height: 20px;
+    }
+    #submit-button{
+      border-radius: 5px;
+      border: none;
+      margin: 5px 0;
+      background-color: rgb(43, 149, 149);
+    }
+    .main a:first-of-type{
+      font-size: 14px;
+      color: rgb(43, 149, 149);
+    }
+    .div img{
+      filter: invert(1);
+    }
+
+</style>
   </head>
   <body>
-    <div class="card-one">
-      <div class="img-frame">
-        <img class="image" src="profile-picture.jpg" alt="">
-      </div>
-      <div class="text-box">
-        <p class="text-name">Walter white</p>
-        <p class="text">Software engineer</p>
-      </div>
-      <footer class="foot">
-      <img class="logo" src="icons8-facebook-logo-50.png" alt="">
-      <img class="logo" src="icons8-linkedin-circled-50.png" alt="">
-      <img class="logo" src="icons8-twitter-logo-50.png" alt="">
-      <img class="logo" src="icons8-youtube-logo-50.png" alt="">
-      </footer>
+    <div class="main">
+      <header>
+        <p>Login Form</p>
+      </header>
+      <form action="">
+        <div class="div">
+          <img src="logos/mail.png" alt="">
+          <input type="email" id="email" placeholder="email address">
+        </div>
+        <div class="div">
+          <img src="logos/padlock.png" alt="">
+          <input type="password" id="password" placeholder="password">
+        </div>
+        <a href="#">
+          Forgot password ?
+        </a>
+        <input type="submit" value="Login" name="" id="submit-button">
+      </form>
+        <span>Not a member</span>
+        <a href="#">Sign up now</a>
     </div>
-
   </body>
 </html>

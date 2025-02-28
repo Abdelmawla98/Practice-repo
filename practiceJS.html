@@ -12,27 +12,27 @@
     </head>
 
     <body>
-        <p id="my-p" class="my-p">this is <span>p</span></p>
-        <button class="btn">button</button>
-        <div></div>
         
+        <form action="" id="myForm">
+            <input type="text" value="just a text" id="input-id">
+            <label for="input-id">just a discription</label>
+            <input type="submit">
+        </form>
         <script>
-          
-           let el =  document.getElementById("my-p");
-           
-           el.addEventListener("click", function(){
-           let cloned = el.cloneNode(true);
-           cloned.classList.add("cloned-class");
-            document.body.appendChild(cloned);
-           });
-              document.addEventListener("click", function(event){
-                if(event.target.classList.contains("cloned-class"))
-                console.log("im cloned");
-              else if(event.target.className === "btn")
-              console.log("button")
-              })
+                let url1 = 'elzero.org';
+                let url2 = 'http://elzero.org';
+                let url3 = 'https://elzero.org';
+                let url4 = 'https://www.elzero.org';
+                let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
 
+                let re = /(https?(:\/\/)?(www.)?)?\w{6,}.\w{3,}(:\d{4}\/\w+.\w{3}\?\w{2}=\d{3}&\w{3}=\w+)?/g;
 
+                console.log(url1.match(re));
+                console.log(url2.match(re));
+                console.log(url3.match(re));
+                console.log(url4.match(re));
+                console.log(url5.match(re));
+       
 
         </script>
 
