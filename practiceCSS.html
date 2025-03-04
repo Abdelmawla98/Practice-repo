@@ -9,19 +9,23 @@
     box-sizing: border-box;
   }
   body{
+    background-color: rgb(43, 149, 149);
+  }
+  .canvas{
     position: relative;
+    padding: 0 20px;
+    max-width: 300px;
+    margin: 170px auto;
     background-color: rgb(43, 149, 149);
   }
   .main{
     background-color: white;
     border-radius: 8px;
-    margin-top: 60px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%);
-    height: 260px;
-    width: 240px;
+    transform: translate(-50%, -50%);
+    width: 100%;
   }
   header{
     display: flex;
@@ -52,10 +56,10 @@
       border-radius: 0 4px 4px 0;
     }
     .div #email, #password{
-      border: 2px lightgray solid;
-    }
-    .div input:focus{
       outline: none;
+      border: 1px lightgray solid;
+    }
+    .div #email:focus, #password:focus{
       border: 2px solid rgb(43, 149, 149);
     }
     form label{
@@ -66,42 +70,56 @@
       height: 20px;
     }
     #submit-button{
+      cursor: pointer;
       border-radius: 5px;
       border: none;
       margin: 5px 0;
       background-color: rgb(43, 149, 149);
     }
     .main a:first-of-type{
+      margin-bottom: 20px;
       font-size: 14px;
       color: rgb(43, 149, 149);
     }
     .div img{
       filter: invert(1);
     }
-
+    .bottm{
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 414px){
+      .canvas{
+        width: 100%;
+      }
+    }
 </style>
   </head>
   <body>
-    <div class="main">
-      <header>
-        <p>Login Form</p>
-      </header>
-      <form action="">
-        <div class="div">
-          <img src="logos/mail.png" alt="">
-          <input type="email" id="email" placeholder="email address">
+    <div class="canvas">
+      <div class="main">
+        <header>
+          <p>Login Form</p>
+        </header>
+        <form action="">
+          <div class="div">
+            <img src="logos/mail.png" alt="">
+            <input type="email" id="email" placeholder="email address">
+          </div>
+          <div class="div">
+            <img src="logos/padlock.png" alt="">
+            <input type="password" id="password" placeholder="password">
+          </div>
+          <a href="#">
+            Forgot password ?
+          </a>
+          <input type="submit" value="Login" name="" id="submit-button">
+        </form>
+        <div class="bottm">
+          <span>Not a member</span>
+          <a href="#">Sign up now</a>
         </div>
-        <div class="div">
-          <img src="logos/padlock.png" alt="">
-          <input type="password" id="password" placeholder="password">
-        </div>
-        <a href="#">
-          Forgot password ?
-        </a>
-        <input type="submit" value="Login" name="" id="submit-button">
-      </form>
-        <span>Not a member</span>
-        <a href="#">Sign up now</a>
+      </div>
     </div>
   </body>
 </html>

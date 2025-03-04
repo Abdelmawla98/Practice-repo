@@ -14,8 +14,23 @@
     </head>
 
     <body>
-        <script src="main.js" type="module"></script>
-        <script src="ap.js" type="module"></script>
+        
+        <script>
+           const prom = new Promise((res, rej)=>{
+            setTimeout(()=>{
+                res("im the good promise");
+            }, 3000)
+           });
+
+           function readData(){
+            console.log("before promise");
+            prom.then((resVal)=>console.log(resVal)).catch("sorry cant display");
+            console.log("after promise");
+            prom.finally("just finally");
+           }
+           readData();
+
+        </script>
     </body>
 
 </html>
