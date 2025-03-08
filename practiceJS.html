@@ -1,60 +1,123 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        width: 500px;
+        margin: 20px auto;
+      }
+      .form {
+        background-color: #eee;
+        border-radius: 6px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        flex: 1;
+      }
+      .input:focus {
+        outline: none;
+      }
+      .add {
+        border: none;
+        background-color: #f44336;
+        color: white;
+        padding: 10px;
+        border-radius: 6px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .tasks {
+        background-color: #eee;
+        margin-top: 20px;
+        border-radius: 6px;
+        padding: 20px;
+      }
+      .tasks .task {
+        background-color: white;
+        padding: 10px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s;
+        cursor: pointer;
+        border: 1px solid #ccc;
+      }
+      .tasks .task:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      .tasks .task:hover {
+        background-color: #f7f7f7;
+      }
+      .tasks .task.done {
+        opacity: 0.5;
+      }
+      .tasks .task span {
+        font-weight: bold;
+        font-size: 10px;
+        background-color: red;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <input type="text" class="input" />
+        <input type="submit" class="add" value="Add Task" />
+      </div>
+      <div class="tasks"></div>
+    </div>
+    <script>
+        let arrayOfTasks = [];
+      let submit = document.querySelector(".add");
+      let inputData = document.querySelector(".input");
+      let taskDiv = document.querySelector(".tasks");
 
- 
+      submit.addEventListener("click", (event)=>{
+        if(inputData.value !== ""){
+        addingobjToArrOFTasks(inputData.value);
+        inputData.value = "";
+        }
+      })
 
-<html>
+    function  addingobjToArrOFTasks(taskName){
+       const taskObj = {
+        id: Date.now(),
+        title: taskName,
+        completed: false,
+      };
+      arrayOfTasks.push(taskObj);
+      addingTasksToDoc(arrayOfTasks);
+    };
 
-    <head>
-        <style>
+    function addingTasksToDoc(arrayOfTasks){
+        taskDiv.innerHTML = "";
+        arrayOfTasks.forEach((task)=>{
+            let div = document.createElement("div");
+            div.className = "task";
+            div.setAttribute("data-id", task.id);
+            div.appendChild(document.createTextNode(task.title));
+            console.log(div);
+        })
+    }
 
-        </style>
-
-    </head>
-
-    <body>
-        
-<<<<<<< HEAD
-        <script>
-           const prom = new Promise((res, rej)=>{
-            setTimeout(()=>{
-                res("im the good promise");
-            }, 3000)
-           });
-
-           function readData(){
-            console.log("before promise");
-            prom.then((resVal)=>console.log(resVal)).catch("sorry cant display");
-            console.log("after promise");
-            prom.finally("just finally");
-           }
-           readData();
-
-        </script>
-=======
-        <form action="" id="myForm">
-            <input type="text" value="just a text" id="input-id">
-            <label for="input-id">just a discription</label>
-            <input type="submit">
-        </form>
-        <script>
-                let url1 = 'elzero.org';
-                let url2 = 'http://elzero.org';
-                let url3 = 'https://elzero.org';
-                let url4 = 'https://www.elzero.org';
-                let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
-
-                let re = /(https?(:\/\/)?(www.)?)?\w{6,}.\w{3,}(:\d{4}\/\w+.\w{3}\?\w{2}=\d{3}&\w{3}=\w+)?/g;
-
-                console.log(url1.match(re));
-                console.log(url2.match(re));
-                console.log(url3.match(re));
-                console.log(url4.match(re));
-                console.log(url5.match(re));
-       
-
-        </script>
-
->>>>>>> 491a3a2f2802f415749159873f30b0d85c95189a
-    </body>
-
+    </script>
+  </body>
 </html>
