@@ -1,123 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learn JavaScript</title>
-    <link rel="stylesheet" href="main.css" />
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      .container {
-        width: 500px;
-        margin: 20px auto;
-      }
-      .form {
-        background-color: #eee;
-        border-radius: 6px;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-      }
-      .input {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        flex: 1;
-      }
-      .input:focus {
-        outline: none;
-      }
-      .add {
-        border: none;
-        background-color: #f44336;
-        color: white;
-        padding: 10px;
-        border-radius: 6px;
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      .tasks {
-        background-color: #eee;
-        margin-top: 20px;
-        border-radius: 6px;
-        padding: 20px;
-      }
-      .tasks .task {
-        background-color: white;
-        padding: 10px;
-        border-radius: 6px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: 0.3s;
-        cursor: pointer;
-        border: 1px solid #ccc;
-      }
-      .tasks .task:not(:last-child) {
-        margin-bottom: 15px;
-      }
-      .tasks .task:hover {
-        background-color: #f7f7f7;
-      }
-      .tasks .task.done {
-        opacity: 0.5;
-      }
-      .tasks .task span {
-        font-weight: bold;
-        font-size: 10px;
-        background-color: red;
-        color: white;
-        padding: 2px 6px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="form">
-        <input type="text" class="input" />
-        <input type="submit" class="add" value="Add Task" />
-      </div>
-      <div class="tasks"></div>
-    </div>
-    <script>
-        let arrayOfTasks = [];
-      let submit = document.querySelector(".add");
-      let inputData = document.querySelector(".input");
-      let taskDiv = document.querySelector(".tasks");
-
-      submit.addEventListener("click", (event)=>{
-        if(inputData.value !== ""){
-        addingobjToArrOFTasks(inputData.value);
-        inputData.value = "";
-        }
-      })
-
-    function  addingobjToArrOFTasks(taskName){
-       const taskObj = {
-        id: Date.now(),
-        title: taskName,
-        completed: false,
-      };
-      arrayOfTasks.push(taskObj);
-      addingTasksToDoc(arrayOfTasks);
-    };
-
-    function addingTasksToDoc(arrayOfTasks){
-        taskDiv.innerHTML = "";
-        arrayOfTasks.forEach((task)=>{
-            let div = document.createElement("div");
-            div.className = "task";
-            div.setAttribute("data-id", task.id);
-            div.appendChild(document.createTextNode(task.title));
-            console.log(div);
-        })
-    }
-
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <!--justa test comment 01-->
+    <div class="el01">div 01</div>
+    <!--justa test comment 02-->
+    <button class="el02">button</button>
+    <!--justa test comment 03-->
+    <a href="" class="el03">test link</a>
+  </div>
+ <script>
+let el = document.querySelector(".el02");
+console.log(el.nextSibling);
+ </script>
+</body>
 </html>

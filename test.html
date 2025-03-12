@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        width: 500px;
+        margin: 20px auto;
+      }
+      .form {
+        background-color: #eee;
+        border-radius: 6px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        flex: 1;
+      }
+      .input:focus {
+        outline: none;
+      }
+      .add {
+        border: none;
+        background-color: #f44336;
+        color: white;
+        padding: 10px;
+        border-radius: 6px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .tasks {
+        background-color: #eee;
+        margin-top: 20px;
+        border-radius: 6px;
+        padding: 20px;
+      }
+      .tasks .task {
+        background-color: white;
+        padding: 10px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s;
+        cursor: pointer;
+        border: 1px solid #ccc;
+      }
+      .tasks .task:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      .tasks .task:hover {
+        background-color: #f7f7f7;
+      }
+      .tasks .task.done {
+        opacity: 0.5;
+      }
+      .tasks .task span {
+        font-weight: bold;
+        font-size: 10px;
+        background-color: red;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .deleeALL{
+        color: red;
+        border-color: red;
+        padding: 5px;
+        font-weight: 14px;
+        font-weight: bold;
+        border-radius: 4px;
+        margin-left: 210px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <input type="text" class="input" />
+        <input type="submit" class="add" value="Add Task" />
+      </div>
+      <button class="deleeALL">delete all</button>
+      <div class="tasks"></div>
+    </div>
+    <script>
+    let arrayOfTasks = [];
+    if(window.localStorage.getItem("tasks")){
+        arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
+    }
+
+      let submit = document.querySelector(".add");
+      let inputData = document.querySelector(".input");
+      let taskDiv = document.querySelector(".tasks");
+      let deleteAllBtn = document.querySelector(".deleeALL");
+
+      getDataFromLocalstorage();
+
+      submit.addEventListener("click", (event)=>{
+        if(inputData.value !== ""){
+        addingobjToArrOFTasks(inputData.value);
+        inputData.value = "";
+        }
+      })
+      taskDiv.addEventListener("click",(e)=>{
+        if(e.target.classList.contains("del")){
+            deleteTaskWith(e.target.parentElement.getAttribute("data-id"));
+            e.target.parentElement.remove();
+        }
+        if(e.target.classList.contains("task")){
+            toggleStatusTaskWith(e.target.getAttribute("data-id"));
+            e.target.classList.toggle("done");
+        }
+      } )
+      deleteAllBtn.addEventListener("click", ()=>{
+        arrayOfTasks = [];
+        localStorage.clear();
+        taskDiv.innerHTML = "";
+      })
+      function  addingobjToArrOFTasks(taskName){
+       const taskObj = {
+        id: Date.now(),
+        title: taskName,
+        completed: false,
+      };
+      arrayOfTasks.push(taskObj);
+      addingTasksToDoc(arrayOfTasks);
+      addDatatoLocalstorageFrom(arrayOfTasks);
+    };
+    function addingTasksToDoc(arrayOfTasks){
+        taskDiv.innerHTML = "";
+        arrayOfTasks.forEach((task)=>{
+            let div = document.createElement("div");
+            div.className = "task";
+
+            if(task.completed){
+                div.className = "task done";
+            }
+
+            div.setAttribute("data-id", task.id);
+            div.appendChild(document.createTextNode(task.title));
+            let span = document.createElement("span");
+            span.className = "del";
+            span.appendChild(document.createTextNode("Delete"));
+            div.appendChild(span);
+            taskDiv.appendChild(div);
+        })
+    }
+    function addDatatoLocalstorageFrom(arrayOfTasks){
+    window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
+   }
+   function getDataFromLocalstorage(){
+    let data = window.localStorage.getItem("tasks");
+    if(data){
+        let tasks = JSON.parse(data);
+        addingTasksToDoc(tasks);
+    };
+   };
+   function deleteTaskWith(taskId){
+    for(let i = 0; i<arrayOfTasks.length; i++){
+        arrayOfTasks = arrayOfTasks.filter((task)=>task.id!=taskId);
+    }
+    addDatatoLocalstorageFrom(arrayOfTasks);
+   };
+  function toggleStatusTaskWith(taskId){
+    for(let i=0; i<arrayOfTasks.length; i++){
+       if(arrayOfTasks[i].id == taskId){
+       if (arrayOfTasks[i].completed){
+        arrayOfTasks[i].completed = false;
+       }
+       else arrayOfTasks[i].completed = true;
+       }
+    }
+    addDatatoLocalstorageFrom(arrayOfTasks);
+   }
+    </script>
+  </body>
+</html>
