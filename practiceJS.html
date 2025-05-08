@@ -1,60 +1,39 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    
+    "din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+    
+    */
+  let str = "Success"; 
 
- 
-
-<html>
-
-    <head>
-        <style>
-
-        </style>
-
-    </head>
-
-    <body>
-        
-<<<<<<< HEAD
-        <script>
-           const prom = new Promise((res, rej)=>{
-            setTimeout(()=>{
-                res("im the good promise");
-            }, 3000)
-           });
-
-           function readData(){
-            console.log("before promise");
-            prom.then((resVal)=>console.log(resVal)).catch("sorry cant display");
-            console.log("after promise");
-            prom.finally("just finally");
-           }
-           readData();
-
-        </script>
-=======
-        <form action="" id="myForm">
-            <input type="text" value="just a text" id="input-id">
-            <label for="input-id">just a discription</label>
-            <input type="submit">
-        </form>
-        <script>
-                let url1 = 'elzero.org';
-                let url2 = 'http://elzero.org';
-                let url3 = 'https://elzero.org';
-                let url4 = 'https://www.elzero.org';
-                let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
-
-                let re = /(https?(:\/\/)?(www.)?)?\w{6,}.\w{3,}(:\d{4}\/\w+.\w{3}\?\w{2}=\d{3}&\w{3}=\w+)?/g;
-
-                console.log(url1.match(re));
-                console.log(url2.match(re));
-                console.log(url3.match(re));
-                console.log(url4.match(re));
-                console.log(url5.match(re));
-       
-
-        </script>
-
->>>>>>> 491a3a2f2802f415749159873f30b0d85c95189a
-    </body>
-
+  console.log(str);
+    function duplicateEncode(word){
+      const obj = {};   
+      word.toLowerCase().split("").forEach((e)=>{
+      obj[e] === undefined ? obj[e] = 1 : obj[e]++;
+    }) 
+    console.log(Object.entries(obj));
+      for([k,v] of Object.entries(obj)){
+        if(Number(v)>1)
+        word = word.replaceAll(k,")");
+        else{
+        word = word.replace(k,"(");
+        }
+        return word;
+      }
+    }
+    console.log(duplicateEncode(str));
+  </script>
+</body>
 </html>

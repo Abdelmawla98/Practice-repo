@@ -2,34 +2,40 @@
 <html lang="en">
 <head>
   <style>
-<<<<<<< HEAD
-    body{
-      height: 100vh;
-      display: grid;
-      place-items: center;
+    button{
+      background: lightcyan;
+      border: .5px solid gray;
+      border-radius: 3px;
+      color: white;
+      cursor: pointer;
     }
-    div{
-      color:red;
+    input{
+      background: lightpink;
+      border: .5px solid gray;
+      border-radius: 3px;
+      caret-color: cadetblue;
+    }
+    input:focus{
+      outline: none;
+      border-color: yellow;
+    }
+    input::placeholder{
+      color: white;
+    }
+    input::selection{
+      color: white;
+      background: pink;
     }
   </style>
-=======
-input{
-  outline: none;
-}
-input:focus{
-  border-color: aqua;
-}
-</style>
->>>>>>> 491a3a2f2802f415749159873f30b0d85c95189a
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-<<<<<<< HEAD
-  <div>div</div>
-=======
-  <input type="text">
->>>>>>> 491a3a2f2802f415749159873f30b0d85c95189a
+  <button>test</button>
+  <input type="text" placeholder="write your name">
+  <script>
+    
+  </script>
 </body>
 </html>
