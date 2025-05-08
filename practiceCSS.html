@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
   <style>
@@ -18,10 +19,81 @@
       justify-content: center;  /* Centers the child horizontally */
       padding: 5px;  /* Prevents content from touching edges */
       box-sizing: border-box; /* Includes padding in width calculations */
+=======
+<html>
+  <head>
+<style>
+  :root{
+    --mainColor:  rgb(49, 205, 205);
+  }
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: var(--mainColor)
+  }
+  .canvas{
+    position: relative;
+    padding: 0 20px;
+    max-width: 300px;
+    margin: 170px auto;
+    background-color: var(--mainColor)
+  }
+  .main{
+    background-color: white;
+    border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(16, 73, 54);
+    border-radius: 8px 8px 0 0;
+    height: 50px;
+  }
+    form{
+      display: flex;
+      flex-direction: column;
+      padding: 13px;
+    }
+    .div{
+      background-color: var(--mainColor);
+      width: 95%;
+      border-radius: 4px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+    form input{
+      width: 100%;
+      padding: 5px;
+      border-radius: 0 4px 4px 0;
+    }
+    .div #email, #password{
+      outline: none;
+      border: 1px lightgray solid;
+    }
+    .div #email:focus, #password:focus{
+      border: 2px solid var(--mainColor);
+    }
+    form label{
+      display: inline-block;
+>>>>>>> a3ce42e040701fe350d3f8fb520501fb5d60a814
     }
     img{
       width: 60%;
     }
+<<<<<<< HEAD
     .child{
       background-color: gray;
       margin-bottom: 10px;
@@ -42,4 +114,59 @@
 
   </div>
 </body>
+=======
+    #submit-button{
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      margin: 5px 0;
+      background-color: var(--mainColor);
+    }
+    .main a:first-of-type{
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--mainColor);
+    }
+    .div img{
+      filter: invert(1);
+    }
+    .bottm{
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 414px){
+      .canvas{
+        width: 100%;
+      }
+    }
+</style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="main">
+        <header>
+          <p>Login Form</p>
+        </header>
+        <form action="">
+          <div class="div">
+            <img src="logos/mail.png" alt="">
+            <input type="email" id="email" placeholder="email address">
+          </div>
+          <div class="div">
+            <img src="logos/padlock.png" alt="">
+            <input type="password" id="password" placeholder="password">
+          </div>
+          <a href="#">
+            Forgot password ?
+          </a>
+          <input type="submit" value="Login" name="" id="submit-button">
+        </form>
+        <div class="bottm">
+          <span>Not a member</span>
+          <a href="#">Sign up now</a>
+        </div>
+      </div>
+    </div>
+  </body>
+>>>>>>> a3ce42e040701fe350d3f8fb520501fb5d60a814
 </html>
